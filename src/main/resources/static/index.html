@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="index.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <h1>Bestilling av kinobilletter</h1>
+            <form class="form">
+                <div class="form-group">
+                    <label for="velgfilm">Velg film:</label>
+                    <select name="velgfilm" id="velgfilm" required>
+                        <option value="" hidden>Velg film her</option>
+                        <option value="django">Django</option>
+                        <option value="interstellar">Interstellar</option>
+                        <option value="halloween">Halloween</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="antall">Antall</label>
+                    <input class="form-control" type="number" id="antall" min="1" max="3" onchange="antallValidering()" required>
+                </div>
+                <div class="form-group">
+                    <label for="fornavn">Fornavn</label>
+                    <input class="form-control" type="text" id="fornavn" required>
+                </div>
+                <div class="form-group">
+                    <label for="etternavn">Etternavn</label>
+                    <input class="form-control" type="text" id="etternavn" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefonnr">Telefonnr</label>
+                    <input class="form-control" type="tel" id="telefonnr" pattern="[0-9]{8}" onchange="telefonValidering()" required>
+                </div>
+                <div class="form-group">
+                    <label for="epost">Epost</label>
+                    <input class="form-control" type="email" id="epost" onchange="epostValidering()" required>
+                </div>
+                <button class="btn btn-primary" onclick="lagreBilletter()">Bestill</button>
+            </form>
+        </div>
+        <div class="col-md-8">
+            <h2>Alle billetter</h2>
+            <div id="utskrift"></div>
+            <button class="btn btn-danger" onclick="slettBilletter()">Slett alle billettene</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
